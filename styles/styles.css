@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  background-image: url("./images/background.svg");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-attachment: fixed;
+}
+
+.caption {
+  margin-top: 288px;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background-image: url("../images/background.svg");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-attachment: fixed;
+}
+
+.caption {
+  margin-top: 288px;
+}
+
+#chart-container {
+  width: 200px;
+  height: 500px;
+}

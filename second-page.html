@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XGuardian SAST Report</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        background-color: #f9f9f9;
+      }
+      body {
+        background-image: url("./images/background.svg");
+        background-position: right top;
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-attachment: fixed;
+      }
+
+      .caption {
+        margin-top: 288px;
+      }
+
+      .subtitle {
+        padding: 60px;
+      }
+    </style>
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  </head>
+
+  <body class="flex flex-col">
+    <header class="flex flex-col px-4">
+      <h1 class="flex justify-center text-2xl text-purple-900 font-bold pt-10">
+        Detalhes do Scan
+      </h1>
+    </header>
+    <div class="flex align-center justify-center mt-5">Scan ID: 275</div>
+    <section class="flex justify-center align-center text-center p-20">
+      <div
+        class="flex flex-col justify-center align-center bg-white border rounded-lg w-screen"
+      >
+        <h3 class="text-lg text-purple-800 font-bold p-10">
+          Risco totais por severidade
+        </h3>
+        <div class="flex justify-center align-center">
+          <div class="container flex justify-around align-center">
+            <div class="flex justify-around align-center mb-4">
+                <table class="table w-1/3" id="severity-table">
+                    <thead>
+                      <tr>
+                        <th>Severidade</th>
+                        <th>Número de vulnerabilidades</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><span class="bg-error chip">CRITICAL</span></td>
+                        <td>31</td>
+                      </tr>
+                      <tr>
+                        <td><span class="bg-warning chip">HIGH</span></td>
+                        <td>104</td>
+                      </tr>
+                      <tr>
+                        <td><span class="bg-dark chip">MEDIUM</span></td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td><span class="bg-success chip">LOW</span></td>
+                        <td>0</td>
+                      </tr>
+                      <tr>
+                        <td><span class="bg-total chip">TOTAL</span></td>
+                        <td>135</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            <div id="chart-container" class="flex justify-center align-center pt-10">
+                <canvas id="severity-chart" "></canvas>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript">
+window.addEventListener("DOMContentLoaded", function (event) {
+    var options = {
+        series: [31, 104, 0, 0],  // Dados do gráfico
+        chart: {
+            width: 400,
+            type: 'pie',
+        },
+        labels: ['Crítica', 'Alta', 'Média', 'Baixa'],
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    width: 200
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }]
+    };
+
+    var chart = new ApexCharts(document.querySelector("#chart-container"), options);
+    chart.render();
+});
+
+               
+    </script>
+  </body>
+</html>

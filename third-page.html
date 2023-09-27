@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XGuardian SAST Report</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        background-color: #f9f9f9;
+      }
+      body {
+        background-image: url("./images/background.svg");
+        background-position: right top;
+        background-repeat: no-repeat;
+        background-size: auto;
+        background-attachment: fixed;
+      }
+
+      .caption {
+        margin-top: 288px;
+      }
+
+      .subtitle {
+        padding: 60px;
+      }
+
+      table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding-top: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: center;
+}
+    </style>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+      defer
+      type="text/javascript"
+    ></script>
+  </head>
+
+  <body class="flex flex-col">
+    <header class="flex flex-col justify-center align-center px-4">
+        <h1 class="text-lg text-purple-800 font-bold p-10">Detalhamento das Vulnerabilidades</h1>
+        <p class="pt-2 pl-10 w-9/12 text-left text-sm">Os problemas são divididos com base no seu impacto (dano potencial) e probabilidade (probabilidade de identificação
+            e explorar).
+            Questões de alto impacto/alta probabilidade representam a maior prioridade e representam a maior ameaça.
+            Questões de baixo impacto/baixa probabilidade são as de menor prioridade e apresentam a menor ameaça.</p>
+
+        <section class="flex justify-left p-10">
+            <div class="flex justify-center align-center mt-10 w-2/3">
+                <table id="tabela-severidade">
+                    <thead>
+                        <tr>
+                            <th class="bg-purple-800 text-white">Severidade</th>
+                            <th class="bg-purple-800 text-white">CVE</th>
+                            <th class="bg-purple-800 text-white">Localização</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-severidade="Critica">Crítica</td>
+                            <td>CVE-2023-1234</td>
+                            <td>homero.py</td>
+                        </tr>
+                        <tr>
+                            <td data-severidade="Alta">Alta</td>
+                            <td>CVE-2023-5678</td>
+                            <td>reporter.py</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+    const rows = document.querySelectorAll('#tabela-severidade tbody tr');
+
+    rows.forEach(row => {
+        const severidadeCell = row.querySelector('td[data-severidade]');
+        const severidade = severidadeCell.textContent.trim().toLowerCase();
+
+        switch (severidade) {
+            case 'crítica':
+                severidadeCell.style.backgroundColor = '#DE2D2D';
+                severidadeCell.style.color = 'white';
+                break;
+            case 'alta':
+                severidadeCell.style.backgroundColor = '#D98556';
+                severidadeCell.style.color = 'white';
+                break;
+            case 'média':
+                severidadeCell.style.backgroundColor = '#EAD359';
+                severidadeCell.style.color = 'white';
+                break;
+            case 'baixa':
+                severidadeCell.style.backgroundColor = '#312F84';
+                severidadeCell.style.color = 'white';
+                break;
+        }
+    });
+});
+    </script>
+  </body>
+</html>

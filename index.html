@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XGuardian SAST Report</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        background-color: #f9f9f9;
+      }
+      body {
+        background-image: url("./images/background.svg");
+        background-position: right top;
+        background-repeat:no-repeat;
+        background-size: auto;
+        background-attachment: fixed;
+      }
+
+      .caption {
+        margin-top: 288px;
+      }
+
+      .subtitle{
+        padding: 60px;
+      }
+
+    </style>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+      defer
+      type="text/javascript"
+    ></script>
+  </head>
+
+  <body class="flex flex-col">
+    <header class="flex flex-col justify-between px-4">
+        <a class="pl-20 pt-20">
+          <img class="w-4/12" src="./images/logo.svg" alt="Logo Xguardian" />
+        </a>
+      </header>
+      <h2 class="text-5xl text-purple-900 font-bold ml-20 caption">Relatório</h2>
+      <section class="pl-20 mt-40 subtitle">
+        <p class="text-purple-900 text-lg">Status do scan-sast:</p>
+        <p class="text-purple-900 text-lg">Relatório do scan realizado em <span class="text-dark chip"><i class="icon icon-time"> </i>&nbsp; 2022-12-07 as 13:32:34.</span></br></br></br>ATENÇÃO: Esse relatório foi gerado a partir de uma POC. <br>Para obter todos os resultados (Vulnerabilidades chave e vulnerabilidades totais por criticidade) é necessário realizar seu cadastro na plataforma, assinar um plano e obter seus scans (pontuais ou ilimitados)
+        </p>
+      </section>
+  </body>
+</html>

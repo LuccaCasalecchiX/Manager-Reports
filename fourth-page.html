@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>XGuardian SAST Report</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"
+    />
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        background-color: #f9f9f9;
+      }
+      body {
+    background-image: url("./images/background.svg");
+    background-position: right center; /* Mantém a imagem à direita e centralizada verticalmente */
+    background-repeat: no-repeat;
+    background-size: auto; 
+    background-attachment: fixed;
+}
+
+
+      .caption {
+        margin-top: 288px;
+      }
+
+      .subtitle {
+        padding: 60px;
+      }
+
+      table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding-top: 4px;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-align: center;
+}
+    </style>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+      defer
+      type="text/javascript"
+    ></script>
+  </head>
+
+  <body class="flex flex-col">
+    <header class="flex flex-col justify-center align-center px-4">
+        <h1 class="text-lg text-purple-800 font-bold p-10">Ordem de Prioridade de Vulnerabilidades XGuardian</h1>
+        <h3 class="pt-10 pl-10 font-bold text-lg">Crítica</h3>
+        <p class="pt-2 pl-10 w-9/12 text-left text-sm">Questões de prioridade crítica têm alto impacto e alta probabilidade. Questões de prioridade crítica são fáceis de detectar
+            e explorar e resultar em grandes danos patrimoniais. Esses problemas representam o maior risco de segurança para o aplicativo. Como tal, devem ser remediados imediatamente.
+            
+            SQL Injection é um exemplo de problema crítico.
+        </p>
+
+        <h3 class="pt-10 pl-10 font-bold text-lg">Alta</h3>
+        <p class="pt-2 pl-10 w-9/12 text-left text-sm">Questões de alta prioridade têm alto impacto e baixa probabilidade. Questões de alta prioridade são muitas vezes difíceis de resolver
+            detectar e explorar, mas pode resultar em grandes danos a ativos. Esses problemas representam um alto risco de segurança
+            para o aplicativo. Problemas de alta prioridade devem ser corrigidos no próximo lançamento de patch agendado.
+            
+            Gerenciamento de senha: a senha codificada é um exemplo de problema grave.
+        </p>
+
+        <h3 class="pt-10 pl-10 font-bold text-lg">Média</h3>
+        <p class="pt-2 pl-10 w-9/12 text-left text-sm">Questões de média prioridade têm baixo impacto e alta probabilidade. Problemas de prioridade média são fáceis de detectar
+            e exploração, mas normalmente resultam em pequenos danos a ativos. Esses problemas representam uma segurança moderada
+            risco para a aplicação. Problemas de prioridade média deverão ser solucionados no próximo produto programado.
+
+        <h3 class="pt-10 pl-10 font-bold text-lg">Baixa</h3>
+        <p class="pt-2 pl-10 w-9/12 text-left text-sm mb-10">Questões de baixa prioridade têm baixo impacto e baixa probabilidade. Problemas de baixa prioridade podem ser difíceis de detectar
+            e exploração e normalmente resultam em pequenos danos a ativos. Estas questões representam um pequeno risco de segurança para
+            a aplicação. Os problemas de baixa prioridade devem ser remediados conforme o tempo permitir.
+            
+            Dead Code é um exemplo de problema baixo.
+        </p>
+
+            
+  </body>
+</html>
